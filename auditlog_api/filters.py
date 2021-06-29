@@ -38,7 +38,7 @@ class ChangedFieldsFilter(BaseFilterBackend):
     def _get_tracked_models(self):
         return [
             "{}.{}".format(model._meta.app_label, model._meta.model_name)
-            for model in auditlog.list()
+            for model in auditlog.get_models()
         ]
 
     def _get_content_type(self, request):
